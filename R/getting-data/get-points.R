@@ -26,7 +26,9 @@ download_data(file_name = "chicago-building-footprints.geojson",
               my_url = "https://data.cityofchicago.org/api/geospatial/hz9b-7nh8?method=export&format=GeoJSON")
 
 
-
+download_data(file_name = "chicago-neighborhoods.GeoJSON",
+              my_city = "Chicago",
+              my_url = "https://data.cityofchicago.org/api/geospatial/bbvz-uum9?method=export&format=GeoJSON")
 
 
 
