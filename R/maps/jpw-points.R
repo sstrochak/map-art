@@ -12,7 +12,7 @@ ls <- tibble(long = -87.688014,
   st_as_sf(coords = c("long", "lat"),
            crs = st_crs(chi)) %>% 
   st_transform(2173) %>% 
-  st_buffer(dist = units::set_units(0.5, "mi")) %>% 
+  st_buffer(dist = units::set_units(0.85, "mi")) %>% 
   st_transform(crs = st_crs(chi))
 
 
@@ -21,13 +21,16 @@ ls_points <- st_intersection(chi, ls) %>%
   mutate(grad = scales::rescale(as.numeric(x_coord), to = c(0, 1)))
 
 
+nhoods5 <- c("#DC8665", "#138086", "#534666", "#CD7672", "#EEB462")
+
 ggplot() +
   geom_sf(data = ls_points, mapping = aes(fill = factor(group5)),
           color = NA) +
   scale_fill_manual(values = nhoods5) +
   urbnthemes::theme_urbn_map() +
   guides(fill = FALSE)
-
+ggsave("maps/lincoln-square-buldings.png",
+       height = 9, width = 9, dpi = 500)
 
 ggplot() +
   geom_sf(data = ls_points, mapping = aes(fill = grad),
