@@ -19,6 +19,12 @@ download_data(file_name = "bloomington-master-addresses.GeoJSON",
 
 
 
+download_data(file_name = "bloomington-roads.GeoJSON",
+              my_city = "Bloomington",
+              my_url = "https://bloomington.in.gov/geoserver/publicgis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=publicgis:RoadCenterlines&outputFormat=application%2Fjson")
+
+
+
 # Chicago -----------------------------------------------------------------
 
 download_data(file_name = "chicago-building-footprints.geojson",

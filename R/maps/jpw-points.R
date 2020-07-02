@@ -12,7 +12,7 @@ ls <- tibble(long = -87.688014,
   st_as_sf(coords = c("long", "lat"),
            crs = st_crs(chi)) %>% 
   st_transform(2173) %>% 
-  st_buffer(dist = units::set_units(0.85, "mi")) %>% 
+  st_buffer(dist = units::set_units(1, "mi")) %>% 
   st_transform(crs = st_crs(chi))
 
 
@@ -52,3 +52,27 @@ ggplot() +
   urbnthemes::theme_urbn_map() +
   guides(fill = FALSE)
 ggsave("maps/lincoln-square-y.png", height = 9, width = 9)
+
+
+
+iu <- st_read("data/Bloomington/bloomington-master-addresses.GeoJSON") %>% 
+  st_transform(st_crs(chi))
+
+
+iu_rad <- tibble(long = -86.519708, 
+             lat = 39.166815) %>% 
+  st_as_sf(coords = c("long", "lat"),
+           crs = st_crs(chi)) %>% 
+  st_transform(2173) %>% 
+  st_buffer(dist = units::set_units(2, "mi")) %>% 
+  st_transform(crs = st_crs(chi)) %>% 
+  st_intersection(iu)
+
+
+ggplot() +
+  geom_sf(iu_rad, mapping = aes(color = xcoord)) +
+  scale_color_gradientn(colors = pal1) +
+  urbnthemes::theme_urbn_map() +
+  guides(color = FALSE)
+ggsave("maps/bloomington-points-2mi.png",
+       height = 9, width = 9, dpi = 500)
