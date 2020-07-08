@@ -32,7 +32,8 @@ ggplot() +
   guides(fill = FALSE)
 ggsave("maps/lincoln-square-buldings.png",
        height = 9, width = 9, dpi = 500)
-
+ggsave("maps/lincoln-square-buldings.jpg",
+       height = 9, width = 9, dpi = 500)
 
 pal1 <- c("#d2fbd4","#a5dbc2","#7bbcb0","#559c9e","#3a7c89","#235d72","#123f5a")
 pal2 <- c("#008080","#70a494","#b4c8a8","#f6edbd","#edbb8a","#de8a5a","#ca562c")
