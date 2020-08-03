@@ -8,7 +8,9 @@ map_buildings_discrete <- function(buildings_df,
             color = outline_color) +
     scale_fill_manual(values = color_scheme) +
     urbnthemes::theme_urbn_map() +
-    guides(fill = FALSE)
+    guides(fill = FALSE) +
+    theme(panel.background = element_rect(fill = "white",
+                                          color = NA))
   
   
 }

@@ -90,3 +90,18 @@ ggplot() +
   geom_sf(urban_buildings, mapping = aes())
 
 
+# HANNAH T ----------------------------------------------------------------
+
+
+hannah <- dc %>% 
+  crop_buildings(pick_a_buffer(long = -77.036309,
+                               lat = 38.917827,
+                               size = 1.0)) %>% 
+  get_random_groups(var_name = group4, 
+                    groups = 4)
+
+map_buildings_discrete(hannah,
+                       var_name = group4,
+                       color_scheme = c("#006666", "#9DBCBC", "#FFCC66", "#FFEEBB"))
+
+save_map(map_name = "hannah-t")

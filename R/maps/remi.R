@@ -18,6 +18,9 @@ remi <- sf %>%
                     groups = 5)
 
 map_buildings_discrete(remi,
-                       color_scheme = c("#525564", "#74828F", "#96C0CE", "#BEB9B5", "#C25B56", "#FEF6EB"))
+                       color_scheme = c("#257E78", "#40B8AF", "#6C2D58", "#B2577A", "#FFEEBB")) 
+
+
+c("#525564", "#74828F", "#96C0CE", "#BEB9B5", "#C25B56", "#FEF6EB")
 
 save_map(map_name = "remi")
