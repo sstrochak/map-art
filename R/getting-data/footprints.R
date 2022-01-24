@@ -1,6 +1,6 @@
 
 library(tidyverse)
-
+library(here)
 
 download_data(file_name = "dc-footprints.zip",
               my_city = "footprints",

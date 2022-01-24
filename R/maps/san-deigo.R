@@ -1,4 +1,6 @@
 
+library(sf)
+library(tidyverse)
 
 ca <- st_read("data/footprints/California.geojson")
 
